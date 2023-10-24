@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { ContainerFilterStyled, InputFilterStyled } from './filter.styled';
 import { changeFilter } from 'store/filterSlice';
+import { TextField } from '@mui/material';
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -11,10 +11,17 @@ const Filter = () => {
   };
 
   return (
-    <ContainerFilterStyled>
-      <label>Find contacts by name</label>
-      <InputFilterStyled name="filter" type="text" onChange={onChange} />
-    </ContainerFilterStyled>
+    <>
+      <TextField
+        onChange={onChange}
+        id="outlined-basic"
+        type="text"
+        label="Find contacts by name"
+        name="filter"
+        size="small"
+        required
+      />
+    </>
   );
 };
 

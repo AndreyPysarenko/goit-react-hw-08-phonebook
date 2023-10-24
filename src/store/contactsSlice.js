@@ -3,9 +3,11 @@ import {
   handleAddContactFulfilled,
   handleDeleteContactFulfilled,
   handleFetchContactsFulfilled,
+  handleLogOutFulfilled,
 } from './helpers';
 import { addContact, deleteContact, fetchContacts } from './operations';
 import { initialState } from './initialState';
+import { logOut } from './auth/operations';
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -14,7 +16,8 @@ export const contactsSlice = createSlice({
     builder
       .addCase(fetchContacts.fulfilled, handleFetchContactsFulfilled)
       .addCase(addContact.fulfilled, handleAddContactFulfilled)
-      .addCase(deleteContact.fulfilled, handleDeleteContactFulfilled);
+      .addCase(deleteContact.fulfilled, handleDeleteContactFulfilled)
+      .addCase(logOut.fulfilled, handleLogOutFulfilled)
   },
 });
 
